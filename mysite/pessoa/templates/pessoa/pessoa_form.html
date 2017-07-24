@@ -1,0 +1,15 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'pessoa/css/bootstrap.css' %}" />
+<div class="container">
+    <h1>Adcionar Pessoa</h1>
+    <hr/>
+    <form method="post">{% csrf_token %}
+        <div class="form-group">
+            {{form.as_p}}
+        </div>
+        <hr/>
+        <a class="btn btn-danger" href="{% url 'pessoa:pessoa_list' %}"> Cancelar </a>
+        <input class="btn btn-success" type="submit" value="Salvar" />
+    </form>
+</div>

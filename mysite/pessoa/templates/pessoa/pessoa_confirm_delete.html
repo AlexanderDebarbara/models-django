@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'pessoa/css/bootstrap.css' %}" />
+<div class="container">
+    <h1> Excluir Pessoa </h1>
+    <hr/>
+    <form method="post"> {% csrf_token %}
+
+        <p>Deseja realmente excluir "{{ object.nome }}"?</p>
+        <a class="btn btn-danger" href="{% url 'pessoa:pessoa_list' %}"> Cancelar </a>
+        <input class="btn btn-success" type="submit" value="Excluir" />
+    </form>
+<div>
