@@ -5,6 +5,6 @@ class Pessoa(models.Model):
     cpf = models.CharField(max_length = 11)
     data_nasc = models.DateTimeField('Data de nascimento')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.nome    
 
