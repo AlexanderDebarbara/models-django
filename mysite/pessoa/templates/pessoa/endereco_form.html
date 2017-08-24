@@ -1,0 +1,14 @@
+{% load static %} {% load crispy_forms_tags %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'pessoa/css/bootstrap.css' %}" />
+<div class="container">
+    <div class="row">
+        <div class="col-xs-4">
+            <h1>Adcionar Endereco</h1>
+            <form method="post">{% csrf_token %} {{form|crispy}}
+                <a class="btn btn-danger" href="{% url 'pessoa:pessoa_list' %}"> Cancelar </a>
+                <input class="btn btn-success" type="submit" value="Salvar" />
+            </form>
+        </div>
+    </div>
+</div>
