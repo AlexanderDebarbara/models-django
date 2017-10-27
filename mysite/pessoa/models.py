@@ -17,3 +17,22 @@ class Endereco(models.Model):
 
     def __str__(self):
         return self.logradouro
+
+
+class Prontuario(models.Model):
+    pessoa = models.ForeignKey(Pessoa, on_delete = models.CASCADE, verbose_name = 'Pessoa')
+    city = models.CharField(max_length = 200, verbose_name= 'Cidade')
+    macro_number = models.CharField(max_length = 200, verbose_name = 'Nº Macro')
+    macro_read = models.CharField(max_length = 200, verbose_name = 'Leitura')
+    pontual_macro = models.CharField(max_length = 200, verbose_name = 'Q = Pontual Macro')
+    pontual_ultrasonico = models.CharField(max_length = 200, verbose_name = "Q = Pontual Ultrasonico")
+    dn = models.CharField(max_length = 200, verbose_name = 'DN')
+    marca = models.CharField(max_length = 200, verbose_name = 'Marca')
+    entry_date = models.DateTimeField('Data de Entrada')
+    observation = models.CharField(max_length = 200, verbose_name = 'Observação')    
+
+    def __str__(self):
+        return self.macro_number + " Leitura: " + self.macro_read
+
+
+    
