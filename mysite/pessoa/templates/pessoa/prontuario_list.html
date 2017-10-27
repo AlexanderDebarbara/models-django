@@ -1,0 +1,44 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'pessoa/css/bootstrap.css' %}" />
+
+<div class="container" style="margin-top:50px">
+    <h1>Prontuario de Macromedição</h1>
+    {% if object_list %}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Funcionario</th>
+                <th>Cidade</th>
+                <th>Numero Macro</th>
+                <th>Leitura</th>
+                <th>Pontual Macro</th>
+                <th>Pontual Ultrasonico</th>
+                <th>DN</th>
+                <th>Marca</th>
+                <th>Data</th>
+                <th>Observação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for prontuario in object_list %}
+            <tr>
+                <th>{{ prontuario.pessoa.nome }}</th>
+                <th>{{ prontuario.city }}</th>
+                <th>{{ prontuario.macro_number}}</th>
+                <th>{{ prontuario.macro_read}}</th>
+                <th>{{ prontuario.pontual_macro}}</th>
+                <th>{{ prontuario.pontual_ultrasonico}}</th>
+                <th>{{ prontuario.dn}}</th>
+                <th>{{ prontuario.marca}}</th>
+                <th>{{ prontuario.entry_date}}</th>
+                <th>{{ prontuario.observation}}</th>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    {% else %}
+    <p> Não existe nenhum dado de pessoa. Clique em "Add novo" para adcionar um.</p>
+    {% endif %}
+    <a class="btn btn-primary" type="button" href="{% url 'pessoa:prontuario_new' %}">Add novo</a>
+</div>

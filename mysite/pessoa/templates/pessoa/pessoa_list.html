@@ -20,8 +20,8 @@
                 <th>{{pessoa.nome }}</th>
                 <th>{{ pessoa.cpf }} </th>
                 <th>{{ pessoa.data_nasc }}</th>
-                <th><a class="btn btn-default" href="{% url 'pessoa:pessoa_edit' pessoa.id %}"> Editar </a>
-                    <a class="btn btn-default" href="{% url 'pessoa:pessoa_delete' pessoa.id %}"> Excluir </a> </th>
+                <th> <a class="btn btn-default" href="{% url 'pessoa:pessoa_edit' pessoa.id %}"> Editar </a>
+                     <a class="btn btn-default" href="{% url 'pessoa:pessoa_delete' pessoa.id %}"> Excluir </a> </th>
             </tr>
             {%endfor%}
         </tbody>
